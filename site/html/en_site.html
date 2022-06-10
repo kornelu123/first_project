@@ -17,19 +17,29 @@
             Forum for cwel's
         </h1>
     </div>
-        <button id="toggle" class="hover:text-slate-50 m-4 hover:text-darkerWhite">Toggle menu</button>
+        <button id="toggle" class="mb-4 hover:text-slate-50 m-4 hover:text-darkerWhite flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.79,.01,.28,1.01)] w-10 h-10" alt="toggle_menu"></button>
         <menu>
-            <ul class="grid hidden items-center grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full" id="menu">
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-110 duration-150 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cwel</li>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-110 duration-150 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-110 duration-150 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-110 duration-150 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
+            <ul class="grid h-0 items-center grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cwel</li>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
             </ul>
         </menu>
         <script src="../scripts/menu_script.js"></script>
     </nav>
-    <main>
+    <main class="grid grid-cols-9">
+        <aside class="col-span-2 bg-basicViolet h-screen">
+            <div id="latest">
+                
+            </div>
+        </aside>
+        <section class="col-span-7 bg-basicDark h-screen">
+            <div id="main mx-8 bg-basicViolet h-screen">
+                
+            </div>
+        </section>
     </main>
-<script src="./cwel.js"></script>
+<script src="../scripts/info.js"></script>
 </body>
 </html>

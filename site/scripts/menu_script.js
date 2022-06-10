@@ -5,7 +5,9 @@ const menuChild = menu.children
 
 //toggling the visibility of an element
 function toggleVisibility(where){
-    where.classList.toggle("hidden")
+    where.classList.toggle("h-0")
+    where.classList.toggle("h-20")
+    document.getElementById("button").classList.toggle("rotate-90")
 }
 
 //setting menu options 

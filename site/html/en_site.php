@@ -1,3 +1,7 @@
+<?php
+require '../Controllers/Global/Auth.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +18,12 @@
     <nav id="cwel" class="w-full h-fit bg-basicDark text-basicWhite grid items-center mb-4">
         <h2 class="absolute top-4 left-4 p-4 text-lg">
                 <?php
-                    if(isset($_COOKIE['user'])){
+                    if(Auth::authorised()){
                         $user = $_COOKIE['user'];
                         echo 'You are logged in as <span class="text-darkerWhite">'.$user.'</span>';
                     }
+                    // user();
+                    
                 ?>
         </h2>
         <h2 class="absolute top-4 right-4 text-xl">
@@ -56,6 +62,7 @@
                 </div>
             </div>
         </section>
+        
     </main>
 <script src="../scripts/info.js"></script>
 </body>

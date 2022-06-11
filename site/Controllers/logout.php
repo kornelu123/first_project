@@ -5,4 +5,6 @@
     unset($_COOKIE['user']);
     session_destroy();
     $conn-> close();
+    header('../html/en_site.php');
+
 ?>

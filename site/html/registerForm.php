@@ -13,6 +13,7 @@
 <body class="font-classicFont bg-basicDark">
 <nav id="cwel" class="w-full h-fit bg-basicDark text-basicWhite grid items-center mb-4">
         <h2 class="absolute top-4 right-4 text-xl">
+            <a href="../Controllers/logout.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>
             <a href="loginForm.php" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a><a href="registerForm.php" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
         </h2>
     <div class=" flex justify-center items-center m-12 mt-20">

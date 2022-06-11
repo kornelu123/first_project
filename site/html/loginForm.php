@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +16,7 @@
 <body class="font-classicFont bg-basicDark">
 <nav id="cwel" class="w-full h-fit bg-basicDark text-basicWhite grid items-center mb-4">
         <h2 class="absolute top-4 right-4 text-xl">
-            <a href="loginForm.html" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a><a href="registerForm.html" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
+            <a href="loginForm.php" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a><a href="registerForm.php" class="bg-darkViolet transition-colors hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
         </h2>
     <div class=" flex justify-center items-center m-12 mt-20">
         <h1 class="text-6xl after:clear-both hover:text-lighterWhite">
@@ -22,11 +25,11 @@
     </div>
         <button id="toggle" class="m-4 flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.32,.82,.89,.39)] w-10 h-10" alt="toggle_menu"></button>
         <menu>
-            <ul class="grid h-0 items-center hover:text-slate-50 hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
-                <a href="./en_site.html"><li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Home</li></a>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
-                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 hover:text-slate-300 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
+            <ul class="grid h-0 items-center hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
+                <a href="./en_site.php"><li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Home</li></a>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
+                <li class="w-full text-center h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
             </ul>
         </menu>
         <script src="../scripts/menu_script.js"></script>
@@ -51,6 +54,13 @@
                             <input type="text" name="login" class="m-6 mb-12 text-black text-center"> <br>
                             Password :  <br>
                             <input type="password" name="password" class="m-6 mb-12 text-black text-center"> <br>
+                            <div class ="text-errorRed">
+                                <?php
+                                    if(isset($_SESSION['err'])){
+                                        echo $_SESSION['err'];
+                                    }
+                                ?></br>
+                            </div>
                             <button type="submit" class="text-2xl border-2 py-2 px-8 m-10 rounded-b-lg bg-basicViolet hover:bg-lightViolet hover:text-lighterWhite border-basicWhite">Log-in</button> <br>
                         </form>
                     </div>
@@ -60,4 +70,7 @@
     </main>
 <script src="../scripts/info.js"></script>
 </body>
+<?php
+session_destroy();
+?>
 </html>

@@ -5,5 +5,4 @@
     unset($_COOKIE['user']);
     session_destroy();
     $conn-> close();
-
 ?>

@@ -2,7 +2,7 @@
     $host = 'localhost';
     $dbname = 'FajfusBase';
     $username = 'root';
-    $password = '';
+    $password = 'chuj';
 
     try {
         $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

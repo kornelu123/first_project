@@ -1,10 +1,11 @@
 <?php
 
-    require_once '../Database/connDefault.php';
+    require_once '../Database/Database.php';
     session_start();
-    unset($_COOKIE['user']);
     session_destroy();
-    $conn-> close();
+    unset($_COOKIE['user']);
+    $database = new Database;
+    $database->disconect();
     header('../html/en_site.php');
 
 ?>

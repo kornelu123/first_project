@@ -4,8 +4,9 @@
     session_start();
     session_destroy();
     unset($_COOKIE['user']);
+    setcookie('user', null, -1, '/'); 
     $database = new Database;
-    $database->disconect();
-    header('../html/en_site.php');
+    $database->disconnect();
+    header('Location: ../html/en_site.php');
 
 ?>

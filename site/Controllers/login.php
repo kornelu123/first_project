@@ -9,6 +9,8 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     
     if( $user = $Database->select('users', '*', "username= '$login'") )
     {
+        $user = $user[0];
+        
         if(password_verify($password,$user['password']))
         {
             setcookie('user', $user['username'], time() + (86400 * 30), '/');

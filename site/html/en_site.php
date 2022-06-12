@@ -1,7 +1,10 @@
 <?php
-require '../Controllers/Global/Auth.php';
-
+    require '../Controllers/Global/Auth.php';
+    require '../Controllers/posts.php';
+    $posts = new Posts;
+    $posts = $posts->show();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,6 @@ require '../Controllers/Global/Auth.php';
                         $user = $_COOKIE['user'];
                         echo 'You are logged in as <span class="text-darkerWhite">'.$user.'</span>';
                     }
-                    // user();
                     
                 ?>
         </h2>
@@ -55,11 +57,17 @@ require '../Controllers/Global/Auth.php';
         </aside>
         <section class="col-span-7 bg-basicDark h-screen">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 border-basicWhite">
-                <div id="post_1" class=" max-h-fit h-64 w-auto m-12 bg-darkerViolet border-y-2 border-basicWhite text-basicWhite">
-                    <h3 class="p-4 text-lg">
-                        Post by : 
-                    </h3>
-                </div>
+                <?php foreach ($posts as $post ) { ?>
+                    <div id="post_1" class=" max-h-fit h-64 w-auto m-12 bg-darkerViolet border-y-2 border-basicWhite text-basicWhite">
+                        <?php    
+                            echo 'title: '.$post['title'].'<br/>';
+                            echo 'content: '.$post['content'].'<br/>';
+                        ?>
+                        <h3 class="p-4 text-lg">
+                            Post by :  <?php   echo $post['username'].'<br/>'; ?>
+                        </h3>
+                    </div>  
+                <?php }?>
             </div>
         </section>
         

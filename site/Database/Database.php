@@ -41,7 +41,7 @@
     public function select($table,$columns = '*',$where = '1=1',$order = 'id',$sort = 'ASC')
     {
         $this->sql = 'SELECT ' .$columns. ' FROM ' .$table. ' WHERE ' . $where. ' ORDER BY ' . $order." ". $sort; 
-
+        var_dump($this->sql);
         $querry = $this->connection->prepare($this->sql);
         try {
             $querry->execute();
@@ -49,7 +49,7 @@
             return $e;
         }
         
-        return $querry->fetch(PDO::FETCH_ASSOC);
+        return $querry->fetchAll(PDO::FETCH_ASSOC);
     }
     public function insert($table,$columns,$updatecolumns,$where = null)
     {

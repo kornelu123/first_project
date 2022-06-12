@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,11 +56,10 @@
                             Password :  <br>
                             <input type="password" name="password" required class="m-6 mb-12 text-black text-center"> <br>
                             <button type="submit" class="text-2xl border-2 py-2 px-8 m-10 rounded-b-lg bg-basicViolet hover:bg-lightViolet hover:text-lighterWhite border-basicWhite">Sign-in</button> <br>
-                        </form>
+                        </form> <br>
                         <?php
-                            if(isset($error))
-                            {
-                                echo $error;
+                            if(isset($_SESSION['err'])){
+                                echo $_SESSION['err'];
                             }
                         ?>
                     </div>

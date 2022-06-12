@@ -41,25 +41,30 @@
     public function select($table,$columns = '*',$where = '1=1',$order = 'id',$sort = 'ASC')
     {
         $this->sql = 'SELECT ' .$columns. ' FROM ' .$table. ' WHERE ' . $where. ' ORDER BY ' . $order." ". $sort; 
-        var_dump($this->sql);
-        $querry = $this->connection->prepare($this->sql);
+
+        return $this->executeQuerry($this->sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function insert($table,$columns,$updatecolumns)
+    {
+        $this->sql = 'INSERT INTO ' .$table. '(' .$columns. ') VALUES (' .$updatecolumns. ')';
+
+        return $this->executeQuerry($this->sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function executeQuerry($querry)
+    {
+        $querry = $this->connection->prepare($querry);
+
         try {
             $querry->execute();
         } catch (PDOException $e) {
             return $e;
         }
         
-        return $querry->fetchAll(PDO::FETCH_ASSOC);
+        return $querry;
     }
-    public function insert($table,$columns,$updatecolumns,$where = null)
-    {
-        $this->sql = 'INSERT INTO ' .$table. '(' .$columns. ') VALUES (' .$updatecolumns. ')';
-        if($where != null)
-        {
-            $this->sql . ' WHERE ' . $where;
-        }
-    }
-    
+
     public function disconnect()
     {
         unset($this->connection);

@@ -1,5 +1,6 @@
 <?php
     require_once '../Database/Database.php';
+    require_once 'Global/Auth.php';
     
     class posts
     {
@@ -10,10 +11,10 @@
         }
 
         
-        public function create($title, $content, $user, $lang)
+        public function create($title, $content)
         {
             $database = new Database;
-            $database->insert('posts','title, content, user, lang', "'$title', '$content', '$user' ,'$lang'");
+            $database->insert('posts','title, content, user, lang', "'$title', '$content', '".Auth::id()."' ,'".Auth::user('lang')."'");
         }
 
     }

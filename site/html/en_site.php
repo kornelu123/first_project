@@ -4,6 +4,8 @@
     require '../Controllers/posts.php';
     $posts = new Posts;
     $posts = $posts->show();
+    $posts = new Posts;
+    $posts = $posts->create('title','content', '1','1');
 ?>
 <html lang="en">
 <head>

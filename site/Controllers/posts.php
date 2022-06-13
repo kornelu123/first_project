@@ -9,12 +9,11 @@
             return $database->select('posts, users', 'posts.*, users.username, users.id','posts.user = users.id','posts.id');
         }
 
-        public function create($title , $content ,$user ,$lang = '1')
+        
+        public function create($title, $content, $user, $lang)
         {
             $database = new Database;
             $database->insert('posts','title, content, user, lang', "'$title', '$content', '$user' ,'$lang'");
-            
-            return true;
         }
 
     }

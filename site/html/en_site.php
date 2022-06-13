@@ -4,8 +4,7 @@
     require '../Controllers/posts.php';
     $posts = new Posts;
     $posts = $posts->show();
-    $posts = new Posts;
-    $posts = $posts->create('title','content', '1','1');
+    // Tworzenie postów
 ?>
 <html lang="en">
 <head>
@@ -63,10 +62,19 @@
                     
                 </div>
                 <div onmouseleave="textArea_out('post_write')" class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write" onclick="textArea_in('post_write')">
-                    <form class="h-full overflow-hidden rounded-lg">
+
+                    <form class="h-full overflow-hidden rounded-lg" method="POST" action="">
                         <textarea type="text" id="input_post" name="post" class="placeholder:font-extrabold placeholder:text-center text-black w-full h-full inline-block whitespace-pre-wrap" placeholder="Write your post..."></textarea>
                         <button type="send_post" class="h-0 w-full text-center pt-2 transform-[height] transition-all">Send post</button>
                     </form>
+                    <?php
+                    if(isset($_POST['post']))
+                    {
+                        $create = new Posts;
+                        $create->create('title', $_POST['post'], '1', '1');
+                        unset($_POST);
+                        var_dump($_POST['post']);
+                    }?>
                 </div>
                 <?php 
                 foreach ($posts as $post ) { ?>

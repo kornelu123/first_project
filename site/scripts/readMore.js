@@ -5,6 +5,7 @@ function check(i){
     return document.getElementById('content_'+i).scrollHeight > document.getElementById('content_'+i).clientHeight
 }
 
+
 //writing out read more
 function overflow(i){
     if(check(i)){
@@ -40,4 +41,20 @@ function blurring(i){
         document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Log in to see the posts</h1>'
         document.getElementById("warning").classList.toggle('p-10')
     }
+}
+
+//handling the textarea expanding
+function textArea_in(i){
+    document.getElementById(i).classList.remove("h-24")
+    document.getElementById(i).classList.add("h-52")
+    document.getElementById("input_post").classList.add("h-4/5")
+    document.getElementById("input_post").classList.remove("h-full")
+    document.getElementById("send_post").classList.add("h-1/5")
+    document.getElementById("send_post").classList.remove("h-0")
+}
+
+//handling the textarea shrinking
+function textArea_out(i){
+    document.getElementById(i).classList.add("h-24")
+    document.getElementById(i).classList.remove("h-52")
 }

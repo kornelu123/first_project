@@ -55,13 +55,20 @@
                 
             </div>
         </aside>
-        <section class="col-span-7 bg-basicDark h-screen overflow-">
+        <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">
                 <div id="warning" class="text-center pt-10">
                     
                 </div>
-                <?php foreach ($posts as $post ) { ?>
-                    <div id="post_<?php echo $post['id'] ;?>" class="transition-[height] ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
+                <div onmouseleave="textArea_out('post_write')" class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write" onclick="textArea_in('post_write')">
+                    <form class="h-full overflow-hidden rounded-lg">
+                        <textarea type="text" id="input_post" name="post" class="placeholder:font-extrabold placeholder:text-center text-black w-full h-full inline-block whitespace-pre-wrap" placeholder="Write your post..."></textarea>
+                        <button type="send_post" class="h-0 w-full text-center pt-2 transform-[height] transition-all">Send post</button>
+                    </form>
+                </div>
+                <?php 
+                foreach ($posts as $post ) { ?>
+                    <div id="post_<?php echo $post['id'] ;?>" class="ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
                         <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
                             <?php    
                                 echo '<div class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';

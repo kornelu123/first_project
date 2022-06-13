@@ -13,7 +13,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
         
         if(password_verify($password,$user['password']))
         {
-            setcookie('user', $user['username'], time() + (86400 * 30), '/');
+            setcookie('user', $user['id'], time() + (86400 * 30), '/');
             header('Location: ../html/en_site.php');
         }else
         {

@@ -4,7 +4,6 @@
     require '../Controllers/posts.php';
     $posts = new Posts;
     $posts = $posts->show();
-    // Tworzenie postów
 ?>
 <html lang="en">
 <head>
@@ -23,8 +22,7 @@
         <h2 class="absolute top-4 left-4 p-4 text-lg">
                 <?php
                     if(Auth::authorised()){
-                        $user = $_COOKIE['user'];
-                        echo 'You are logged in as <span class="text-darkerWhite">'.$user.'</span>';
+                        echo 'You are logged in as <span class="text-darkerWhite">'.Auth::user('username').'</span>';
                         echo '<script>isLogged = true</script>';
                     }
                 ?>
@@ -72,8 +70,6 @@
                     {
                         $create = new Posts;
                         $create->create('title', $_POST['post'], '1', '1');
-                        unset($_POST);
-                        var_dump($_POST['post']);
                     }?>
                 </div>
                 <?php 

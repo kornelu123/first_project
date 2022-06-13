@@ -27,7 +27,9 @@ session_start();
         }else{
             $database = new Database;
             $database->insert('users', '`id`, `username`, `password`, `email`, `squad` , `lang`', "NULL, '$login' , '$password' ,'$email' , '1', '1' ");
-            setcookie('user', $login, time() + (86400 * 30), '/');
+            $id = $database->select('users', "id','username ='$login'");
+            
+            setcookie('user',$id , time() + (86400 * 30), '/');
             header('Location: ../html/en_site.php');
         }
     } 

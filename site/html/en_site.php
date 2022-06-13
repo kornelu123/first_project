@@ -92,6 +92,10 @@
                         </div>
                     </div>  
                     <script>
+                        // it's statment to prevent resending form 
+                        if(window.history.replaceState)
+                            { window.history.replaceState('null', null , window.location.href); }
+
                         overflow(<?php echo $post['id'] ;?>)
                     </script>
                 <?php }?>

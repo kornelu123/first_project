@@ -40,22 +40,22 @@
         <button id="toggle" class="m-4 flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.32,.82,.89,.39)] w-10 h-10" alt="toggle_menu"></button>
         <menu>
             <ul class="grid h-0 hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
-                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">Home</a></li>
-                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
-                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
-                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">Home</a></li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
             </ul>
         </menu>
         <script src="../scripts/menu_script.js"></script>
     </nav>
-    <main class="grid grid-cols-9 z-0">
-        <aside class="col-span-2 bg-basicViolet h-screen border-t-4 border-lighterWhite">
+    <main class="grid grid-cols-9 z-0 border-lighterWhite">
+        <aside class="col-span-2 bg-basicViolet h-screen border-t-4 ">
             <div id="latest">
 
             </div>
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
-            <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-lighterWhite overflow-scroll">
+            <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 overflow-scroll">
                 <div id="warning" class="text-center pt-10">
                     
                 </div>
@@ -74,8 +74,8 @@
                         unset($_POST);
                         // var_dump(isset($_POST['title']));
                     }elseif(isset($_POST['post'])){
-                        echo "<div>";
-                        echo "complete all fields";
+                        echo "<div class='text-errorRed text-2xl text-center pb-2 pt-2 block'>";
+                        echo "Complete all fields";
                         echo "</div>";
                     }?>
                 </div>

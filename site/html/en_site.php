@@ -68,12 +68,16 @@
                         <button type="send_post" id="send_post" class="h-0 w-full py-5 text-center transform-[height] transition-all font-extrabold text-lighterWhite">Send post</button>
                     </form>
                     <?php
-                    if(isset($_POST['post']))
+                    if( !empty($_POST['post']) && !empty($_POST['title']) && isset($_POST['post']))
                     {
                         $create = new Posts;
                         $create->create($_POST['title'], $_POST['post'], '1', '1');
                         unset($_POST);
-                        var_dump($_POST['post']);
+                        // var_dump(isset($_POST['title']));
+                    }elseif(isset($_POST['post'])){
+                        echo "<div>";
+                        echo "complete all fields";
+                        echo "</div>";
                     }?>
                 </div>
                 <?php 

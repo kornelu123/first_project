@@ -7,7 +7,8 @@
         public function show()
         {
             $database = new Database;
-            return $database->select('posts, users', 'posts.*, users.username, users.id','posts.user = users.id','posts.id');
+            
+            return $database->select('posts, users', 'posts.*, users.username','posts.user = users.id ','posts.id');
         }
 
         

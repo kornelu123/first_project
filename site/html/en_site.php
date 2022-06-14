@@ -73,7 +73,6 @@
                         $create = new Posts;
                         $create->create($_POST['title'], $_POST['post'], '1', '1');
                         unset($_POST);
-                        // var_dump(isset($_POST['title']));
                     }elseif(isset($_POST['post'])){
                         echo "<div>";
                         echo "complete all fields";

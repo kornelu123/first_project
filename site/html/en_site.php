@@ -20,10 +20,11 @@
 <body class=" font-classicFont bg-basicDark">
     <nav id="cwel" class="w-full h-fit bg-basicDark text-basicWhite grid items-center mb-4">
         <h2 class="absolute top-4 left-4 p-4 text-lg">
-                <?php
+            <?php
                     if(Auth::authorised()){
                         echo 'You are logged in as <span class="text-darkerWhite">'.Auth::user('username').'</span>';
-                        echo '<script>isLogged = true</script>';
+                        echo '<script>isLogged = true ; 
+                        isInFraction = true;</script>';
                     }
                 ?>
         </h2>
@@ -32,18 +33,21 @@
             <a href="loginForm.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a>
             <a href="registerForm.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
         </h2>
-    <div class=" flex justify-center items-center m-auto mt-20 mb-12">
+    <div class=" flex justify-center flex-col items-center m-auto mt-20 mb-12">
         <h1 class="text-6xl after:clear-both hover:text-lighterWhite">
             Forum for cwel's
+        </h1>
+        <h1 class="text-2xl pt-4" id="section_info">
+            All posts
         </h1>
     </div>
         <button id="toggle" class="m-4 flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.32,.82,.89,.39)] w-10 h-10" alt="toggle_menu"></button>
         <menu>
-            <ul class="grid h-0 items-cente hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
-                <li class="w-full text-center bg-basicDark h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">Home</a></li>
-                <li class="w-full text-center bg-basicDark h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Cipa</li>
-                <li class="w-full text-center bg-basicDark h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
-                <li class="w-full text-center bg-basicDark h-fit cursor-pointer hover:scale-125 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible py-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
+            <ul class="grid h-0 hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">All posts</a></li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_guild_site.php">Fraction posts</a></li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
             </ul>
         </menu>
         <script src="../scripts/menu_script.js"></script>

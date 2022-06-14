@@ -71,7 +71,7 @@
                     if(isset($_POST['post']))
                     {
                         $create = new Posts;
-                        $create->create('title', $_POST['post'], '1', '1');
+                        $create->create($_POST['title'], $_POST['post'], '1', '1');
                         unset($_POST);
                         var_dump($_POST['post']);
                     }?>

@@ -5,6 +5,8 @@ const toggle = document.getElementById("toggle")
 function toggleVisibility(where){
     where.classList.toggle("h-0")
     where.classList.toggle("h-20")
+   where.classList.toggle("overflow-clip")  
+   where.classList.toggle("overflow-hidden")
     document.getElementById("button").classList.toggle("rotate-90")
 }
 

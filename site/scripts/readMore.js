@@ -38,7 +38,7 @@ function handleHeight(i){
 function blurring(i){
     if(!isLogged){
         document.getElementById("post_"+i).classList.toggle('blur-sm')
-        document.getElementById("post_write").classList.toggle('blur-sm')
+        document.getElementById("write").classList.toggle('blur-sm')
         document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Log in to see the posts</h1>'
         document.getElementById("warning").classList.toggle('p-10')
     }

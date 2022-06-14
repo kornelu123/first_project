@@ -59,17 +59,21 @@
                 <div id="warning" class="text-center pt-10">
                     
                 </div>
-                <div onmouseleave="textArea_out('post_write')" class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write" onclick="textArea_in('post_write')">
+                <div class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write">
 
-                    <form class="h-full overflow-hidden rounded-lg" method="POST" action="">
-                        <textarea type="text" id="input_post" name="post" class="placeholder:font-extrabold placeholder:text-center text-black w-full h-full inline-block whitespace-pre-wrap" placeholder="Write your post..."></textarea>
-                        <button type="send_post" class="h-0 w-full text-center pt-2 transform-[height] transition-all">Send post</button>
+                    <form class="h-full  overflow-hidden rounded-lg relative" method="POST" action="">
+                        <button type="button" id="close_icon" class="absolute top-2 left-2 hidden h-4 w-4" onclick="textArea_out('post_write')"><img src="../img/cross.svg" alt="close tab"></button>
+                        <input type="text" name="title" class="w-full h-12 placeholder:text-center pb-1 pt-1 placeholder:font-extrabold text-black px-2" placeholder="Add title">
+                        <textarea type="text" id="input_post" onclick="textArea_in('post_write')" name="post" class="placeholder:font-extrabold placeholder:text-center transform-[height] pt-2 px-2 text-black w-full h-5/6 " placeholder="Write your post..."></textarea>
+                        <button type="send_post" id="send_post" class="h-0 w-full py-5 text-center transform-[height] transition-all font-extrabold text-lighterWhite">Send post</button>
                     </form>
                     <?php
                     if(isset($_POST['post']))
                     {
                         $create = new Posts;
                         $create->create('title', $_POST['post'], '1', '1');
+                        unset($_POST);
+                        var_dump($_POST['post']);
                     }?>
                 </div>
                 <?php 
@@ -82,7 +86,7 @@
                                 echo '<div class="clear-both text-lg px-6 py-4 mb-2 max-h-42">'.$post['content'].'</div><br/>';        
                             ?>
                         </div>
-                        <div id="tool_<?php echo post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center justify-end px-8 py-2 text-lg">
+                        <div id="tool_<?php echo $post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center justify-end px-8 py-2 text-lg">
                             <button id="read_<?php echo $post['id'] ?>" onclick="read(<?php echo $post['id'];?>)" class="text-lighterWhite font-extrabold"></button>
                             <button>
                         </div>

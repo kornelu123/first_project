@@ -24,8 +24,10 @@
                 <?php
                     if(Auth::authorised()){
                         echo 'You are logged in as <span class="text-darkerWhite">'.Auth::user('username').'</span>';
-                        echo '<script>isLogged = true ; 
-                        isInFraction = true;</script>';
+                        echo '<script>isLogged = true</script>';
+                        // PEHAPOWA MAGIA , KTORA MI ZWRACA CZY UZYTKOWNIK JEST WE FRAKCJI
+                        // ODKOMENTUJ JAK DZIAUA W IFIE
+                        //  echo '<script>isInFraction = true</script>';
                     }
                 ?>
         </h2>
@@ -37,15 +39,15 @@
     <div class=" flex justify-center flex-col items-center m-auto mt-20 mb-12">
         <h1 class="text-6xl after:clear-both hover:text-lighterWhite">
             Forum for cwel's
-        </h1>
-        <h1 class="text-2xl pt-4" id="section_info">
-            All posts
+        </h1></br>
+        <h1 class="text-2xl pt-4">
+            Fraction posts
         </h1>
     </div>
         <button id="toggle" class="m-4 flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.32,.82,.89,.39)] w-10 h-10" alt="toggle_menu"></button>
         <menu>
             <ul class="grid h-0 hover:text-darkerWhite grid-cols-4 transition-all text-slate-200 bg-basicDark absolute w-full overflow-hidden" id="menu">
-                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">All posts</a></li>
+                <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_site.php" class="w-full h-full">All Posts</a></li>
                 <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block"><a href="./en_guild_site.php">Fraction posts</a></li>
                 <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 border-r-slate-200 border-r-2 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Pizda</li>
                 <li class="w-full text-center bg-basicDark h-full cursor-pointer hover:scale-x-110 duration-150 delay-75 hover:z-20 z-10 hover:rounded-xl hover:text-lighterWhite overflow-visible pt-7 pb-6 hover:bg-basicViolet hover:border-0 transition-colors ease-in-out block">Chuj</li>
@@ -77,6 +79,7 @@
                         $create = new Posts;
                         $create->create($_POST['title'], $_POST['post'], '1', '1');
                         unset($_POST);
+                        // var_dump(isset($_POST['title']));
                     }elseif(isset($_POST['post'])){
                         ?><?php
                         echo "<div class='text-errorRed text-2xl text-center pb-2 pt-2 block'>";

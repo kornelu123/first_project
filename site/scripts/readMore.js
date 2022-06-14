@@ -1,5 +1,6 @@
 var message = "Read more"
 var isLogged = false
+var isInFraction = false
 //if post is overflown 
 function check(i){
     return document.getElementById('content_'+i).scrollHeight > document.getElementById('content_'+i).clientHeight
@@ -38,15 +39,18 @@ function handleHeight(i){
 function blurring(i){
     if(!isLogged){
         document.getElementById("post_"+i).classList.toggle('blur-sm')
-        document.getElementById("post_write").classList.toggle('blur-sm')
         document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Log in to see the posts</h1>'
+        document.getElementById("warning").classList.toggle('p-10')
+    }else if(!isInFraction){
+        document.getElementById("post_"+i).classList.toggle('blur-sm')
+        document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Get to the fraction to see the posts</h1>'
         document.getElementById("warning").classList.toggle('p-10')
     }
 }
 
 //handling the textarea expanding
 function textArea_in(){
-    if(isLogged){
+    if(isLogged&&isInFraction){
         document.getElementById('post_write').classList.remove("h-24")
         document.getElementById('post_write').classList.add("h-60")
         document.getElementById("input_post").classList.add("h-32")

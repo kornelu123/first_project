@@ -39,7 +39,7 @@ function handleHeight(i){
 function blurring(i){
     if(!isLogged){
         document.getElementById("post_"+i).classList.toggle('blur-sm')
-        document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Log in to see the posts</h1>'
+        document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Log in</h1>'
         document.getElementById("warning").classList.toggle('p-10')
     }else if(!isInFraction){
         document.getElementById("post_"+i).classList.toggle('blur-sm')
@@ -71,4 +71,22 @@ function textArea_out(){
     document.getElementById("send_post").classList.remove("h-12")
     document.getElementById("send_post").classList.add("h-0")
     document.getElementById("close_icon").classList.add("hidden")
+}
+
+//open description
+function desc_open(){
+    document.getElementById("add_desc").classList.remove('h-10')
+    document.getElementById("add_desc").classList.add('h-44')
+    document.getElementById("desc_close").classList.remove('hidden')
+    document.getElementById("add_desc").classList.remove('mt-4') 
+    document.getElementById("add_desc").classList.add('-mt-1') 
+}
+
+//close description
+function descr_close(){
+    document.getElementById("add_desc").classList.add('h-10')
+    document.getElementById("add_desc").classList.remove('h-44')
+    document.getElementById("desc_close").classList.add('hidden')
+    document.getElementById("add_desc").classList.add('mt-4') 
+    document.getElementById("add_desc").classList.remove('-mt-1') 
 }

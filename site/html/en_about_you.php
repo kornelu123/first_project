@@ -38,7 +38,7 @@
             Forum for cwel's
         </h1>
         <h1 class="text-2xl pt-4" id="section_info">
-            All posts
+            About You
         </h1>
     </div>
         <button id="toggle" class="m-4 flex justify-center"><img src="../img/menu.svg" id="button" class="transition-all ease-[cubic-bezier(.32,.82,.89,.39)] w-10 h-10" alt="toggle_menu"></button>
@@ -60,53 +60,39 @@
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">
-                <div id="warning" class="text-center pt-10">
-                    
-                </div>
-                <div class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write">
+                <div id="info">
 
-                    <form class="h-full  overflow-hidden rounded-lg relative" method="POST" action="">
-                        <button type="button" id="close_icon" class="absolute top-2 left-2 hidden h-4 w-4" onclick="textArea_out('post_write')"><img src="../img/cross.svg" alt="close tab"></button>
-                        <input type="text" name="title" class="w-full h-12 placeholder:text-center pb-1 pt-1 placeholder:font-extrabold text-black px-2" placeholder="Add title">
-                        <textarea type="text" id="input_post" onclick="textArea_in('post_write')" name="post" class="placeholder:font-extrabold placeholder:text-center transform-[height] pt-2 px-2 text-black w-full h-5/6 " placeholder="Write your post..."></textarea>
-                        <button type="send_post" id="send_post" class="h-0 w-full py-5 text-center transform-[height] transition-all font-extrabold text-lighterWhite">Send post</button>
-                    </form>
+                </div>
+                <div class="text-center p-4 w-1/2 m-auto">
                     <?php
-                    if( !empty($_POST['post']) && !empty($_POST['title']) && isset($_POST['post']))
-                    {
-                        $create = new Posts;
-                        $create->create($_POST['title'], $_POST['post'], '1', '1');
-                        unset($_POST);
-                        // var_dump(isset($_POST['title']));
-                    }elseif(isset($_POST['post'])){
-                        echo "<div>";
-                        echo "complete all fields";
-                        echo "</div>";
-                    }?>
+                    // jezeli nie ma opisu i frakcji
+                    ?>
+                    <form action="">
+                        <p class="p-2 text-5xl box-border mt-8">Join fraction , or <a href="./create_fraction.php" class="text-lighterWhite">create one yourself</a></p></br>
+                        <p class="p-2 text-3xl box-border mt-4">What fraction you want to join</p></br>
+                        <select class="w-96 text-black box-border h-10 text-center my-2">
+                        <?php
+                        $option = ["communits","capitalist","fascist","nazi"];
+                        for($i=0; $i<4; $i++){
+                            echo "<option>";
+                            echo $option[$i];
+                            echo "</option>";
+                        }
+                        ?>
+                        </select></br>    
+                        <p for="desc" class="p-2 text-3xl box-border mt-4">Your description</p></br>
+                        <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="descr_close()"><img src="../img/cross.svg" alt="close tab"></button>
+                        <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-4" onclick="desc_open()"></textarea></br> 
+                    </form>
                 </div>
-                <?php 
-                foreach ($posts as $post ) { ?>
-                    <div id="post_<?php echo $post['id'] ;?>" class="ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
-                        <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
-                            <?php    
-                                echo '<div class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
-                                echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
-                                echo '<div class="clear-both text-lg px-6 py-4 mb-2 max-h-42">'.$post['content'].'</div><br/>';        
-                            ?>
-                        </div>
-                        <div id="tool_<?php echo $post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center justify-end px-8 py-2 text-lg">
-                            <button id="read_<?php echo $post['id'] ?>" onclick="read(<?php echo $post['id'];?>)" class="text-lighterWhite font-extrabold"></button>
-                            <button>
-                        </div>
-                    </div>  
-                    <script>
-                        // it's statment to prevent resending form 
-                        if(window.history.replaceState)
-                            { window.history.replaceState('null', null , window.location.href); }
-
-                        overflow(<?php echo $post['id'] ;?>)
-                    </script>
-                <?php }?>
+                <?php
+                //jezeli jest opis i frakcja
+                ?>
+                <script>
+                    if(!isLogged){
+                       document.getElementById("info").innerHTML = "<h1 class='text-errorRed text-5xl text-center py-8'>Log in to give info about yourself</h1>"
+                    }
+                </script>
             </div>
         </section>
     </main>

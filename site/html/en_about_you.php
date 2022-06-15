@@ -82,11 +82,17 @@
                         </select></br>    
                         <p for="desc" class="p-2 text-3xl box-border mt-4">Your description</p></br>
                         <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="descr_close()"><img src="../img/cross.svg" alt="close tab"></button>
-                        <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-4" onclick="desc_open()"></textarea></br> 
+                        <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-8" onclick="desc_open()"></textarea></br> 
+                        <button type="submit" id="send_desc" class="text-lg border-0 rounded-b-xl w-1/3 transition-all font-extrabold hover:bg-lightViolet h-0 overflow-hidden transform-[height] text-center">Send description</button>
                     </form>
                 </div>
                 <?php
+                // do tąd
                 //jezeli jest opis i frakcja
+                ?>
+
+                <?php
+                // do tąd
                 ?>
                 <script>
                     if(!isLogged){

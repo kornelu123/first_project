@@ -80,6 +80,10 @@ function desc_open(){
     document.getElementById("desc_close").classList.remove('hidden')
     document.getElementById("add_desc").classList.remove('mt-4') 
     document.getElementById("add_desc").classList.add('-mt-1') 
+    document.getElementById("send_desc").classList.add('h-12')
+    document.getElementById("send_desc").classList.remove('h-0') 
+    document.getElementById("send_desc").classList.add('border-2')
+    document.getElementById("send_desc").classList.remove('border-0')
 }
 
 //close description
@@ -88,5 +92,9 @@ function descr_close(){
     document.getElementById("add_desc").classList.remove('h-44')
     document.getElementById("desc_close").classList.add('hidden')
     document.getElementById("add_desc").classList.add('mt-4') 
-    document.getElementById("add_desc").classList.remove('-mt-1') 
+    document.getElementById("add_desc").classList.remove('-mt-1')  
+    document.getElementById("send_desc").classList.remove('h-12')
+    document.getElementById("send_desc").classList.add('h-0')
+    document.getElementById("send_desc").classList.remove('border-2')
+    document.getElementById("send_desc").classList.add('border-0')
 }

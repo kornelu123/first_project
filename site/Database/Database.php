@@ -34,14 +34,14 @@
         unset($this->db_host, $this->db_name, $this->db_password, $this->db_user);
     }
 
-    public function select($table,$columns = '*',$where = '1=1',$order = 'id',$sort = 'ASC')
+    public function select($table, $columns = '*', $where = '1=1',$sort = 'id',$order = 'ASC')
     {
-        $this->sql = 'SELECT ' .$columns. ' FROM ' .$table. ' WHERE ' . $where. ' ORDER BY ' . $order." ". $sort; 
+        $this->sql = 'SELECT ' .$columns. ' FROM ' .$table. ' WHERE ' . $where. ' ORDER BY ' . $sort." ". $order; 
 
         return $this->executeQuerry($this->sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insert($table,$columns,$updatecolumns)
+    public function insert($table, $columns, $updatecolumns)
     {
         $this->sql = 'INSERT INTO ' .$table. '(' .$columns. ') VALUES (' .$updatecolumns. ')';
 
@@ -63,17 +63,10 @@
         return $this->executeQuerry($this->sql);
     }
 
-    public function sort($table, $column, $order)
-    {
-        $this->sql = 'SELECT * FROM ' .$table. ' ORDER BY ' .$order;
-
-        return $this->executeQuerry($this->sql);
-    }
-
     public function delete($table, $id)
     {
-        $this->sql = 'DELETE FROM' .$table. 'WHERE id = "' .$id. '"';
-
+        $this->sql = 'DELETE FROM ' .$table. ' WHERE id = "' .$id. '"';
+        var_dump($this->sql);
         return $this->executeQuerry($this->sql);
     }
 

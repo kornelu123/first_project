@@ -4,10 +4,10 @@
     
     class posts
     {
-        public function show()
+        public function show($order = "ASC")
         {
             $database = new Database;
-            return $database->select('posts, users', 'posts.*, users.username','posts.user = users.id','posts.id');
+            return $database->select('posts, users', 'posts.*, users.username', 'posts.user = users.id', 'posts.id',$order );
         }
         
         public function create($title, $content)
@@ -25,12 +25,7 @@
         public function delete($id)
         {
             $database = new Database;
-            $database->delete($id);
-        }
-
-        public function sort($column ,$order='ASC')
-        {
-            $database = new Database;
-            $database->sort('posts', $column, $order);
+            $database->delete('posts', $id);
+            return header("Location: " .$_SERVER[HTTP_REFERER]);
         }
     }

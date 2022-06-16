@@ -16,6 +16,7 @@ class Auth
     {
         return $_COOKIE['user'];
     }
+    
     public function user($column)
     {
         if($_COOKIE['user'] != null)

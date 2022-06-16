@@ -5,17 +5,13 @@
  class Database
  {      
 
-   protected $db_host;
-   protected $db_user;
-   protected $db_password;
-   protected $db_name;
-   protected $connection;
-   protected $queryRun;
-   protected $numRows;
-   protected $seldb;
+   private $db_host;
+   private $db_user;
+   private $db_password;
+   private $db_name;
+   private $connection;
    protected $sql;
 
-// constructor
     function __construct(){
         $this->connect();
     }
@@ -52,6 +48,35 @@
         return $this->executeQuerry($this->sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function updateOneColumn($table , $id, $column , $value)
+    {
+
+        $this->sql = 'UPDATE ' .$table. ' SET ' .$column. ' = "' .$value. '" WHERE id = "' .$id. '"';
+
+        return $this->executeQuerry($this->sql);
+    }
+
+    public function update($table, $id, $update)
+    {
+        $this->sql = 'UPDATE ' .$table. ' SET ' .$update. ' WHERE id = "' .$id.'" ';
+
+        return $this->executeQuerry($this->sql);
+    }
+
+    public function sort($table, $column, $order)
+    {
+        $this->sql = 'SELECT * FROM ' .$table. ' ORDER BY ' .$order;
+
+        return $this->executeQuerry($this->sql);
+    }
+
+    public function delete($table, $id)
+    {
+        $this->sql = 'DELETE FROM' .$table. 'WHERE id = "' .$id. '"';
+
+        return $this->executeQuerry($this->sql);
+    }
+
     public function executeQuerry($querry)
     {
         $querry = $this->connection->prepare($querry);
@@ -67,6 +92,8 @@
 
     public function disconnect()
     {
+        unset($db_host, $db_user, $db_password, $db_name, $connection);
+        unset($sql);
         unset($this->connection);
     }
 

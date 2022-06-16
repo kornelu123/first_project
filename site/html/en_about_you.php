@@ -94,7 +94,7 @@
                 }else{
                 //jezeli jest opis i frakcja
                 ?>
-                <div class="w-5/6 mx-12 my-6 pt-8 bg-darkerViolet h-full text-center">
+                <div class="w-5/6 mx-12 my-6 pt-8 h-full text-center">
                     <div class="p-4 border-b-2 w-fit m-auto rounded-md text-4xl pt-8">
                         Your profile <b class="text-lighterWhite"><?php echo Auth::user('username'); ?></b>
                     </div>

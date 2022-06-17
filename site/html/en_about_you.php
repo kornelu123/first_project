@@ -63,37 +63,61 @@
                 <div id="info">
 
                 </div>
-                <div class="text-center p-4 w-1/2 m-auto" id="form_desc">
                     <?php
-                    // jezeli nie ma opisu i frakcji
+                    //Jeżeli nie ma frakcji i opisu
+                    $true = false;
+                    if($true){
                     ?>
-                    <form action="">
-                        <p class="p-2 text-5xl box-border mt-8">Join fraction , or <a href="./create_fraction.php" class="text-lighterWhite">create one yourself</a></p></br>
-                        <p class="p-2 text-3xl box-border mt-4">What fraction you want to join</p></br>
-                        <select class="w-96 text-black box-border h-10 text-center my-2">
-                        <?php
-                        $option = ["communits","capitalist","fascist","nazi"];
-                        for($i=0; $i<4; $i++){
-                            echo "<option>";
-                            echo $option[$i];
-                            echo "</option>";
-                        }
-                        ?>
-                        </select></br>    
-                        <p for="desc" class="p-2 text-3xl box-border mt-4">Your description</p></br>
-                        <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="descr_close()"><img src="../img/cross.svg" alt="close tab"></button>
-                        <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-8" onclick="desc_open()"></textarea></br> 
-                        <button type="submit" id="send_desc" placeholder="Add your description" class="text-lg border-0 rounded-b-xl w-1/3 transition-all font-extrabold hover:bg-lightViolet h-0 overflow-hidden transform-[height] text-center">Send description</button>
-                    </form>
+                    <div class="text-center p-4 w-1/2 m-auto" id="form_desc">
+                        <form action="">
+                            <p class="p-2 text-5xl box-border mt-8">Join fraction , or <a href="./create_fraction.php" class="text-lighterWhite">create one yourself</a></p></br>
+                            <p class="p-2 text-3xl box-border mt-4">What fraction you want to join</p></br>
+                            <select class="w-96 text-black box-border h-10 text-center my-2">
+                            <?php
+                            $option = ["communits","capitalist","fascist","nazi"];
+                            for($i=0; $i<4; $i++){
+                                echo "<option>";
+                                echo $option[$i];
+                                echo "</option>";
+                            }
+                            ?>
+                            </select></br>    
+                            <p for="desc" class="p-2 text-3xl box-border mt-4">Your description</p></br>
+                            <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="descr_close()"><img src="../img/cross.svg" alt="close tab"></button>
+                            <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-8" onclick="desc_open()"></textarea></br> 
+                            <button type="submit" id="send_desc" placeholder="Add your description" class="text-lg border-0 rounded-b-xl w-1/3 transition-all font-extrabold hover:bg-lightViolet h-0 overflow-hidden transform-[height] text-center">Send description</button>
+                        </form>
+                    </div>
+                </div>
+                <?php
+                //do tąd
+                }else{
+                //jezeli jest opis i frakcja
+                ?>
+                <div class="w-5/6 mx-12 my-6 pt-8 h-full text-center">
+                    <div class="p-4 border-b-2 w-fit m-auto rounded-md text-4xl pt-8">
+                        Your profile <b class="text-lighterWhite"><?php echo Auth::user('username'); ?></b>
+                    </div>
+                    <div id="fraction" class="mt-4 text-3xl pt-6">
+                        <div class="w-fit m-auto border-b-2 rounded-md pb-1 px-4">
+                            Fraction 
+                        </div>
+                        <div class="text-2xl my-6">
+                            Frakcja komunistow kurwa
+                        </div>
+                    </div>
+                    <div id="desc" class="mt-4 text-3xl pt-6">
+                        <div class="w-fit m-auto border-b-2 rounded-md pb-1 px-4">
+                            Description
+                        </div>
+                        <div class="text-2xl my-6 h-72 w-2/3 m-auto mt-8 p-4">
+                            Jestem kurwa gejem i cwleem pierdolonym zarzyganum i jestem dumny kurwa ze rzygam sobie do odbytu to ci przeszkadza ?? kurwa cwelu zasrtany zarzygany spierrdaaalaja
+                        </div>
+                    </div>
                 </div>
                 <?php
                 // do tąd
-                //jezeli jest opis i frakcja
-                ?>
-
-                <?php
-                // do tąd
-                
+                }   
                 ?>
                 <script>
                     if(!isLogged){
@@ -101,7 +125,6 @@
                        document.getElementById("form_desc").classList.add("blur-sm")
                     }
                 </script>
-            </div>
         </section>
     </main>
 </body>

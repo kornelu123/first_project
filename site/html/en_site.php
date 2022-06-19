@@ -109,13 +109,13 @@
                         <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
                             <?php    
                                 
-                                echo '<div id="title" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
+                                echo '<div id="title'.$post["id"].'" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
                                 echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
-                                echo '<div id="content" class="clear-both text-lg px-6 py-4 mb-2 max-h-42">'.$post['content'].'</div><br/>';        
+                                echo '<div id="content'.$post["id"].'" class="clear-both text-lg px-6 py-4 mb-2 max-h-42">'.$post['content'].'</div><br/>';        
 
                                 if(Auth::authorised() && Auth::id() == $post['user'])
                                 {
-                                    echo '<button id="button" type="submit" name="edit" class="hidden" > OK</button>';
+                                    echo '<button id="button'.$post["id"].'" type="submit" name="edit" class="hidden" > OK</button>';
                                     echo '</form>'; 
                                 }
                             ?>
@@ -128,7 +128,7 @@
                                         echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
                                         echo '<input type="submit" name="delete" value="X" class="font-extrabold cursor-pointer">';
                                     echo '</form>';
-                                    echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["content"].'`, `'.$post["title"].'` )"> ... </div>';
+                                    echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["id"].'`, `'.$post["content"].'`, `'.$post["title"].'` )"> ... </div>';
                                         echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
                                         echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
                                     echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
@@ -138,28 +138,27 @@
                         </div>
                     </div>
                     <script>
-                        overflow(<?php echo $post['id'] ;?>)
+                        overflow("<?php echo $post['id'] ;?>");
                     </script>
                 <?php }?>
             </div>
         </section>
     </main>
     <script>
-        // it's statment to prevent resending form 
         if(window.history.replaceState)
-            { window.history.replaceState('null', null , window.location.href); }
-            function editChange(title , content)
+            { window.history.replaceState(null, null , window.location.href); }
+        function editChange(id, title , content)
         {
-            button = document.getElementById("button");
-            
+            button = document.getElementById("button"+id);
+            alert("title"+id);
             if(window.getComputedStyle(button).display == "none"){
-                document.getElementById("title").innerHTML = '<input value ="'+title+'" name="title">';
-                document.getElementById("content").innerHTML = '<input value ="'+content+'" name="content">';
+                document.getElementById("title"+id).innerHTML = '<input value ="'+title+'" name="title">';
+                document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" name="content">';
                 button.style.display = "block";
             }
             else{
-                document.getElementById("title").innerHTML = title;
-                document.getElementById("content").innerHTML = content;
+                document.getElementById("title"+id).innerHTML = title;
+                document.getElementById("content"+id).innerHTML = content;
                 button.style.display = "none";
             }
         }

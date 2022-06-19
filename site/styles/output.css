@@ -642,10 +642,6 @@ video {
   margin: 2.5rem;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -664,6 +660,16 @@ video {
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .mt-20 {
@@ -704,6 +710,18 @@ video {
 
 .-mt-1 {
   margin-top: -0.25rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .box-border {
@@ -792,6 +810,22 @@ video {
   height: 11rem;
 }
 
+.h-2\/3 {
+  height: 66.666667%;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
 .max-h-fit {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
@@ -844,6 +878,20 @@ video {
   width: 25%;
 }
 
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-2 {
+  width: 0.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
 .rotate-90 {
   --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -875,6 +923,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .overflow-hidden {
@@ -948,10 +1000,6 @@ video {
   border-top-width: 2px;
 }
 
-.border-t-0 {
-  border-top-width: 0px;
-}
-
 .border-basicWhite {
   --tw-border-opacity: 1;
   border-color: rgb(220 218 203 / var(--tw-border-opacity));
@@ -982,11 +1030,6 @@ video {
   background-color: rgb(38 34 66 / var(--tw-bg-opacity));
 }
 
-.bg-lightViolet {
-  --tw-bg-opacity: 1;
-  background-color: rgb(93 79 139 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1011,9 +1054,20 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-darkerViolet {
+  --tw-gradient-from: #262242;
+  --tw-gradient-to: rgb(38 34 66 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-lightViolet {
   --tw-gradient-to: rgb(93 79 139 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #5D4F8B, var(--tw-gradient-to);
+}
+
+.via-basicViolet {
+  --tw-gradient-to: rgb(64 56 102 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #403866, var(--tw-gradient-to);
 }
 
 .to-darkerViolet {
@@ -1022,10 +1076,6 @@ video {
 
 .to-basicViolet {
   --tw-gradient-to: #403866;
-}
-
-.to-basicDark {
-  --tw-gradient-to: #1F2041;
 }
 
 .p-20 {
@@ -1040,12 +1090,12 @@ video {
   padding: 0.5rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-4 {
@@ -1088,14 +1138,24 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .pt-4 {
@@ -1156,6 +1216,10 @@ video {
 
 .pt-20 {
   padding-top: 5rem;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
 }
 
 .text-center {
@@ -1339,10 +1403,6 @@ video {
 .hover\:bg-lightViolet:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(93 79 139 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gradient-to-b:hover {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
 .hover\:font-extralight:hover {

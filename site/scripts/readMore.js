@@ -43,7 +43,7 @@ function blurring(i){
         document.getElementById("warning").classList.toggle('p-10')
     }else if(!isInFraction){
         document.getElementById("post_"+i).classList.toggle('blur-sm')
-        document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Get to the fraction to see the posts</h1>'
+        document.getElementById("warning").innerHTML = '<h1 class="text-5xl text-errorRed">Join the fraction to see the posts</h1>'
         document.getElementById("warning").classList.toggle('p-10')
     }
 }
@@ -101,4 +101,3 @@ function descr_close(){
     document.getElementById("send_desc").classList.add('border-0')
 }
 
-    

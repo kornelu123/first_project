@@ -15,7 +15,7 @@
     if(isset($_POST['edit']))
         { Posts::edit($_POST['id'],$_POST['title'],$_POST['content'],$_POST['lang']); }
 ?>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,9 +39,9 @@
                 ?>
         </h2>
         <h2 class="absolute top-4 right-4 text-xl">
-            <a href="../Controllers/logout.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>
-            <a href="loginForm.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a>
-            <a href="registerForm.php" class="bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
+            <a href="../Controllers/logout.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>
+            <a href="loginForm.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a>
+            <a href="registerForm.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
         </h2>
     <div class=" flex justify-center flex-col items-center m-auto mt-20 mb-12">
         <h1 class="text-6xl after:clear-both hover:text-lighterWhite">
@@ -100,7 +100,7 @@
                             <option value="ASC">Oldest</option>
                             <option value="DESC">Newest</option>
                         </select>
-                        <button type="submit" name="sort" class="border-2 px-4 py-1 border-y-0 hover:bg-lightViolet bg-gradient-to-b from-basicViolet via-lightViolet to-basicViolet rounded-md"> OK </button>
+                        <button type="submit" name="sort" class="border-2 px-4 py-1 border-y-0 hover:bg-lightViolet bg-gradient-to-b from-basicViolet via-lightViolet to-basicViolet rounded-md">OK</button>
                     </form>
                 </div>
                 <?php 
@@ -108,27 +108,25 @@
                     <div id="post_<?php echo $post['id'] ;?>" class="ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
                         <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
                             <?php    
-                                
                                 echo '<div id="title'.$post["id"].'" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
                                 echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
-                                echo '<div id="content'.$post["id"].'" class="clear-both text-lg px-6 py-4 mb-2 max-h-42">'.$post['content'].'</div><br/>';        
-
+                                echo '<div id="content'.$post["id"].'" class="clear-both text-lg px-6 py-4 max-h-42">'.$post['content'].'</div>';
                                 if(Auth::authorised() && Auth::id() == $post['user'])
                                 {
-                                    echo '<button id="button'.$post["id"].'" type="submit" name="edit" class="hidden" > OK</button>';
+                                    echo '<button id="button'.$post["id"].'" type="submit" name="edit" class="hidden mx-auto border-2 font-extrabold px-10 py-1 border-y-0 rounded-md bg-gradient-to-b from-darkerViolet via-basicViolet to-darkerViolet" >OK</button>';
                                     echo '</form>'; 
                                 }
                             ?>
                         </div>
-                        <div id="tool_<?php echo $post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center justify-end px-8 py-2 text-lg">
+                        <div id="tool_<?php echo $post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center gap-4 justify-end px-8 py-3 text-lg">
                             <?php
                                 if(Auth::authorised() && Auth::id() == $post['user'])
                                 {
-                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST">';  
+                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" class="my-auto mt-1">';  
                                         echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
-                                        echo '<input type="submit" name="delete" value="X" class="font-extrabold cursor-pointer">';
+                                        echo '<button type="submit" name="delete" onclick="return confirm(`Are you sure you want to delete?`)" value="" class="font-extrabold cursor-pointer my-auto"><img class="h-auto w-auto" src="../img/delete.svg"></button>';
                                     echo '</form>';
-                                    echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["id"].'`, `'.$post["content"].'`, `'.$post["title"].'` )"> ... </div>';
+                                    echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["id"].'`, `'.$post["content"].'`, `'.$post["title"].'` )"><img src="../img/edit.svg"  class="h-auto w-auto"></div>';
                                         echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
                                         echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
                                     echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
@@ -147,13 +145,13 @@
     <script>
         if(window.history.replaceState)
             { window.history.replaceState(null, null , window.location.href); }
-        function editChange(id, title , content)
+        function editChange(id, content, title )
         {
             button = document.getElementById("button"+id);
 
             if(window.getComputedStyle(button).display == "none"){
-                document.getElementById("title"+id).innerHTML = '<input value ="'+title+'" name="title">';
-                document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" name="content">';
+                document.getElementById("title"+id).innerHTML = '<input value ="'+title+'" class="text-black p-1" name="title">';
+                document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" class="text-black h-24 w-full" name="content">';
                 button.style.display = "block";
             }
             else{

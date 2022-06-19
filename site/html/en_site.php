@@ -70,15 +70,6 @@
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">
-                <div id="sort" class="">
-                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-                        <select name="order" id="order">
-                            <option value="ASC">new</option>
-                            <option value="DESC">old</option>
-                        </select>
-                        <button type="submit" name = "sort"> OK </button>
-                    </form>
-                </div>
                 <div id="warning" class="text-center pt-10">
                     
                 </div>
@@ -102,23 +93,21 @@
                         echo "</div>";
                     }?>
                 </div>
+                <div id="sort" class="mx-12 text-center pt-6">
+                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    Sort by : 
+                        <select name="order" id="order" class="text-black mx-2 p-1">
+                            <option value="ASC">Oldest</option>
+                            <option value="DESC">Newest</option>
+                        </select>
+                        <button type="submit" name="sort" class="border-2 px-4 py-1 border-y-0 hover:bg-lightViolet bg-gradient-to-b from-basicViolet via-lightViolet to-basicViolet rounded-md"> OK </button>
+                    </form>
+                </div>
                 <?php 
                 foreach ($posts as $post ) { ?>
                     <div id="post_<?php echo $post['id'] ;?>" class="ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
                         <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
                             <?php    
-                                if(Auth::authorised() && Auth::id() == $post['user'])
-                                {
-                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST">';  
-                                    echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
-                                    echo '<input type="submit" name="delete" value="X">';
-                                    echo '</form>';
-                                    echo '<div id= "edit" onclick="editChange(`'.$post["content"].'`, `'.$post["title"].'` )"> ... </div>';
-                                    
-                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
-                                    echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
-                                    echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
-                                }
                                 
                                 echo '<div id="title" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
                                 echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
@@ -132,21 +121,34 @@
                             ?>
                         </div>
                         <div id="tool_<?php echo $post['id']; ?>" class="h-14 border-t-2 bg-basicDark flex items-center justify-end px-8 py-2 text-lg">
-                            <button id="read_<?php echo $post['id'] ?>" onclick="read(<?php echo $post['id'];?>)" class="text-lighterWhite font-extrabold"></button>
-                            <button>
+                            <?php
+                                if(Auth::authorised() && Auth::id() == $post['user'])
+                                {
+                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST">';  
+                                        echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
+                                        echo '<input type="submit" name="delete" value="X" class="font-extrabold cursor-pointer">';
+                                    echo '</form>';
+                                    echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["content"].'`, `'.$post["title"].'` )"> ... </div>';
+                                        echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
+                                        echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
+                                    echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
+                                }
+                            ?>
+                            <button type="button" id="read_<?php echo $post['id'] ?>" onclick="read(<?php echo $post['id'];?>)" class="text-lighterWhite font-extrabold"></button>
                         </div>
                     </div>
+                    <script>
+                        overflow(<?php echo $post['id'] ;?>)
+                    </script>
                 <?php }?>
             </div>
         </section>
     </main>
-
     <script>
         // it's statment to prevent resending form 
         if(window.history.replaceState)
             { window.history.replaceState('null', null , window.location.href); }
-
-        function editChange(title , content)
+            function editChange(title , content)
         {
             button = document.getElementById("button");
             
@@ -161,8 +163,6 @@
                 button.style.display = "none";
             }
         }
-
-        overflow(<?php echo $post['id'] ;?>)
     </script>
 </body>
 </html>

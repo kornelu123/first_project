@@ -100,3 +100,5 @@ function descr_close(){
     document.getElementById("send_desc").classList.remove('border-2')
     document.getElementById("send_desc").classList.add('border-0')
 }
+
+    

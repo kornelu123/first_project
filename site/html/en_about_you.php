@@ -65,7 +65,7 @@
                 </div>
                     <?php
                     //Jeżeli nie ma frakcji i opisu
-                    $true = false;
+                    $true = true;
                     if($true){
                     ?>
                     <div class="text-center p-4 w-1/2 m-auto" id="form_desc">

@@ -150,7 +150,7 @@
         function editChange(id, title , content)
         {
             button = document.getElementById("button"+id);
-            alert("title"+id);
+
             if(window.getComputedStyle(button).display == "none"){
                 document.getElementById("title"+id).innerHTML = '<input value ="'+title+'" name="title">';
                 document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" name="content">';

@@ -7,7 +7,7 @@
     if(isset($_POST['sort']))
         { $posts = $posts->show($_POST['order']); }
     else
-        { $posts = $posts->show(); }
+        { $posts = $posts->show('DESC'); }
 
     if(isset($_POST['delete']))
         { Posts::delete($_POST['id']); }

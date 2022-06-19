@@ -9,6 +9,18 @@
             $database = new Database;
             return $database->select('posts, users', 'posts.*, users.username', 'posts.user = users.id', 'posts.id',$order );
         }
+
+        public function showByGroup($group, $order = "ASC")
+        {
+            $database = new Database;
+            return $database->select('posts, users', 'posts.*, users.username ', ' posts.group = "'.$group.'"', 'posts.id',$order );
+        }
+        
+        public function showByLang($lang, $order = "ASC")
+        {
+            $database = new Database;
+            return $database->select('posts, users', 'posts.*, users.username', ' posts.lang = "'.$lang.'"', 'posts.id',$order );
+        }
         
         public function create($title, $content)
         {

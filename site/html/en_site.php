@@ -108,12 +108,19 @@
                     <div id="post_<?php echo $post['id'] ;?>" class="ease-in-out h-72 w-auto m-12 bg-darkerViolet border-t-2 border-basicWhite text-basicWhite">
                         <div class="h-5/6 overflow-hidden" id="content_<?php echo $post['id']; ?>">
                             <?php    
-                                echo '<div id="title'.$post["id"].'" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
-                                echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
-                                echo '<div id="content'.$post["id"].'" class="clear-both text-lg px-6 py-4 max-h-42">'.$post['content'].'</div>';
                                 if(Auth::authorised() && Auth::id() == $post['user'])
                                 {
-                                    echo '<button id="button'.$post["id"].'" type="submit" name="edit" class="hidden mx-auto border-2 font-extrabold px-10 py-1 border-y-0 rounded-md bg-gradient-to-b from-darkerViolet via-basicViolet to-darkerViolet" >OK</button>';
+                                    echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
+                                        echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
+                                        echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
+                                }
+                                    echo '<div id="title'.$post["id"].'" class="pl-4 pt-3 pb-2 text-xl text-lighterWhite bg-gradient-to-r from-basicViolet to-darkerViolet font-extrabold border-b-2 w-1/3 float-left">'.$post['title'].'</div>';
+                                    echo '<div class="float-right text-xl font-extrabold pr-4 pt-3 pb-2 border-b-2 bg-gradient-to-l from-basicViolet to-darkerViolet">By : '.$post['username'].'</div><br/>';
+                                    echo '<div id="content'.$post["id"].'" class="clear-both text-lg px-6 py-4 max-h-42">'.$post['content'].'</div>';
+                                    
+                                if(Auth::authorised() && Auth::id() == $post['user'])
+                                {
+                                        echo '<button id="button'.$post["id"].'" type="submit" name="edit" class="hidden mx-auto border-2 font-extrabold px-10 py-1 border-y-0 rounded-md bg-gradient-to-b from-darkerViolet via-basicViolet to-darkerViolet" >OK</button>';
                                     echo '</form>'; 
                                 }
                             ?>
@@ -127,9 +134,6 @@
                                         echo '<button type="submit" name="delete" onclick="return confirm(`Are you sure you want to delete?`)" value="" class="font-extrabold cursor-pointer my-auto"><img class="h-auto w-auto" src="../img/delete.svg"></button>';
                                     echo '</form>';
                                     echo '<div id= "edit" class="px-6 font-extrabold cursor-pointer" onclick="editChange(`'.$post["id"].'`, `'.$post["content"].'`, `'.$post["title"].'` )"><img src="../img/edit.svg"  class="h-auto w-auto"></div>';
-                                        echo '<form action=' .$_SERVER['PHP_SELF']. ' method="POST" type="hidden" >';
-                                        echo '<input type="hidden" name="id" id="id" value="'. $post['id']. '">';
-                                    echo '<input type="hidden" name="lang" id="id" value="'. $post['lang']. '">';
                                 }
                             ?>
                             <button type="button" id="read_<?php echo $post['id'] ?>" onclick="read(<?php echo $post['id'];?>)" class="text-lighterWhite font-extrabold"></button>

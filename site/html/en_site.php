@@ -151,7 +151,7 @@
 
             if(window.getComputedStyle(button).display == "none"){
                 document.getElementById("title"+id).innerHTML = '<input value ="'+title+'" class="text-black p-1" name="title">';
-                document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" class="text-black h-24 w-full" name="content">';
+                document.getElementById("content"+id).innerHTML = '<input value ="'+content+'" class="text-black h-24 w-full mt-2" name="content">';
                 button.style.display = "block";
             }
             else{

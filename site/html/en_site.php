@@ -38,12 +38,12 @@
                     }
                 ?>
         </h2>
-        <div class="absolute top-4 right-4 text-xl flex h-12 items-center">
+        <div class="absolute top-4 right-4 text-xl flex h-13 items-center">
             <div class=" bg-lighterWhite mr-4 border-2 rounded-b-md ">
                 <form class="relative"> 
-                    <textarea type="text" class=" w-20 h-10 my-auto transition-all ease-in-out transform-[width]" onclick="textResize('search','w-44','w-20');textResize('search_close','text-bold','invisible')" id="search"></textarea>
-                    <button type="submit"><img src="../img/search.svg" class="w-8 h-8"></button>
-                    <button type="button" id="search_close" class="absolute invisible h-4 w-4 left-1 top-1"  onclick="textResize('search','w-20','w-44');textResize('search_close','invisible','text-bold')" ><img src="../img/cross.svg"></button>
+                    <textarea type="text" class="overflow-none resize-none py-2 text-black pl-7 w-20 h-10 my-auto transition-all ease-in-out transform-[width]" onclick="textResize('search','w-60','w-20');textResize('search_close','text-bold','invisible')" id="search"></textarea>
+                    <button type="submit"><img src="../img/search.svg" class="w-8 h-8 mr-2"></button>
+                    <button type="button" id="search_close" class="absolute invisible h-4 w-4 left-2 top-3"  onclick="textResize('search','w-20','w-60');textResize('search_close','invisible','text-bold')" ><img src="../img/cross.svg"></button>
                 </form>
             </div>
             <a href="../Controllers/logout.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>

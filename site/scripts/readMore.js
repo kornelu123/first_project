@@ -101,3 +101,9 @@ function descr_close(){
     document.getElementById("send_desc").classList.add('border-0')
 }
 
+//resizing text area
+function textResize(id,on,off){
+    const lel = document.getElementById(id)
+    lel.classList.remove(off)
+    lel.classList.add(on)
+}

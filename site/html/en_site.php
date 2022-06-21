@@ -38,11 +38,18 @@
                     }
                 ?>
         </h2>
-        <h2 class="absolute top-4 right-4 text-xl">
+        <div class="absolute top-4 right-4 text-xl flex h-12 items-center">
+            <div class=" bg-lighterWhite mr-4 border-2 rounded-b-md ">
+                <form class="relative"> 
+                    <textarea type="text" class=" w-20 h-10 my-auto transition-all ease-in-out transform-[width]" onclick="textResize('search','w-44','w-20');textResize('search_close','text-bold','invisible')" id="search"></textarea>
+                    <button type="submit"><img src="../img/search.svg" class="w-8 h-8"></button>
+                    <button type="button" id="search_close" class="absolute invisible h-4 w-4 left-1 top-1"  onclick="textResize('search','w-20','w-44');textResize('search_close','invisible','text-bold')" ><img src="../img/cross.svg"></button>
+                </form>
+            </div>
             <a href="../Controllers/logout.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>
-            <a href="loginForm.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg m-4">Log-in</a>
+            <a href="loginForm.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg mx-4">Log-in</a>
             <a href="registerForm.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-bl-lg">Sign-in</a>
-        </h2>
+        </div>
     <div class=" flex justify-center flex-col items-center m-auto mt-20 mb-12">
         <h1 class="text-6xl after:clear-both hover:text-lighterWhite">
             Forum for cwel's

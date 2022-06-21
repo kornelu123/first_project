@@ -65,7 +65,7 @@
                 </div>
                     <?php
                     //Jeżeli nie ma frakcji i opisu
-                    $true = true;
+                    $true = false;
                     if($true){
                     ?>
                     <div class="text-center p-4 w-1/2 m-auto" id="form_desc">
@@ -109,9 +109,10 @@
                     <div id="desc" class="mt-4 text-3xl pt-6">
                         <div class="w-fit m-auto border-b-2 rounded-md pb-1 px-4">
                             Description
-                        </div>
+                    </div>
                         <div class="text-2xl my-6 h-72 w-2/3 m-auto mt-8 p-4">
-                            Jestem kurwa gejem i cwleem pierdolonym zarzyganum i jestem dumny kurwa ze rzygam sobie do odbytu to ci przeszkadza ?? kurwa cwelu zasrtany zarzygany spierrdaaalaja
+                            Jestem kurwa gejem i cwleem pierdolonym zarzyganum i jestem dumny kurwa ze rzygam sobie do odbytu to ci przeszkadza ?? kurwa cwelu zasrtany zarzygany spierrdaaalaja  
+                            <img src="../img/edit.svg" alt="" class="h-10 w-10 m-auto mt-4">
                         </div>
                     </div>
                 </div>

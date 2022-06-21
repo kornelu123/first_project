@@ -72,7 +72,7 @@
 
     public function executeQuerry($querry)
     {
-        var_dump($this->sql);
+        // var_dump($this->sql);
         $querry = $this->connection->prepare($querry);
 
         try {

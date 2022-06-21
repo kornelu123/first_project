@@ -3,12 +3,12 @@ require_once '../Database/connDefault.php';
 
 class Auth
 {
-    // private $userID;
+    private $userID;
 
-    // function __construct()
-    // {
-    //     $userID= $this->id();
-    // }
+    function __construct()
+    {
+        $this->userID= $this->id();
+    }
 
     public function authorised()
     {
@@ -42,7 +42,7 @@ class Auth
     public function group()
     {
         $database = new Database;
-        
-        return $database->select('users','group','id = '.$this->userID);
+
+        return $database->select('users','`group`','id = '.$this->userID);
     }
 }

@@ -4,6 +4,7 @@
     require '../Controllers/posts.php';
     $posts = new Posts;
     $posts = $posts->show();
+    $group = new Auth;
 ?>
 <html lang="en">
 <head>
@@ -22,12 +23,14 @@
     <nav id="cwel" class="w-full h-fit bg-basicDark text-basicWhite grid items-center mb-4 z-0">
         <h2 class="absolute top-4 left-4 p-4 text-lg">
                 <?php
-                    if(Auth::authorised()){
+                    
+                    if(Auth::authorised())
+                    {
                         echo 'You are logged in as <span class="text-darkerWhite">'.Auth::user('username').'</span>';
                         echo '<script>isLogged = true</script>';
-                        // PEHAPOWA MAGIA , KTORA MI ZWRACA CZY UZYTKOWNIK JEST WE FRAKCJI
-                        // ODKOMENTUJ JAK DZIAUA W IFIE
-                        //  echo '<script>isInFraction = true</script>';
+                        
+                        if( !empty($group->group()) )
+                            { echo '<script>isInFraction = true</script>'; }
                     }
                 ?>
         </h2>
@@ -79,7 +82,6 @@
                         $create = new Posts;
                         $create->create($_POST['title'], $_POST['post'], '1', '1');
                         unset($_POST);
-                        // var_dump(isset($_POST['title']));
                     }elseif(isset($_POST['post'])){
                         ?><?php
                         echo "<div class='text-errorRed text-2xl text-center pb-2 pt-2 block'>";

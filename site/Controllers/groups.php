@@ -27,6 +27,10 @@
             $database = new Database;
             return $database->select('`users`' , '*', 'users.group = "'.$group.'"');
         }
-
+        public function randomGroups($count)
+        {
+            $database = new Database;
+            return $database->select('`groups`', '*','1=1','RAND()','LIMIT '.$count);
+        }
 
     }

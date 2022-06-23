@@ -6,7 +6,7 @@
     $latest = new Posts;
     $posts = new Posts;
     $group = new Groups;
-    $randomGroup= $group->show();
+    // $randomGroup= $group->show();
     if(isset($_POST['sort']))
         { $posts = $posts->show($_POST['order']); }
     else
@@ -98,12 +98,11 @@
             </div>
             <?php
             echo "</br>";
-            for($i=0; $i<5; $i++)
+            foreach($group->randomGroups(5) as $randomGroup)
             {
-                 $group =$randomGroup[rand(0,count($randomGroup))];
                 echo '<form method="POST" action=#>';
-                echo $group['name'];
-                echo '<input type="text" name="groupID" id="groupID" value="'.$group['id'].'" hidden="hidden">';
+                echo $randomGroup['name'];
+                echo '<input type="text" name="groupID" id="groupID" value="'.$randomGroup['id'].'" hidden="hidden">';
                 echo '<input type="button" name="joinGroup" id="joinGroup" value="+">';
                 echo '</form>';
             }

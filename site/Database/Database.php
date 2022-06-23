@@ -66,12 +66,13 @@
     public function delete($table, $id)
     {
         $this->sql = 'DELETE FROM ' .$table. ' WHERE id = "' .$id. '"';
-        var_dump($this->sql);
+        
         return $this->executeQuerry($this->sql);
     }
 
     public function executeQuerry($querry)
     {
+        // var_dump($this->sql);
         $querry = $this->connection->prepare($querry);
 
         try {

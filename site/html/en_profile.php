@@ -61,13 +61,13 @@
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">       
                 <div id="info">
                 </div>
-                <div class="w-5/6 mx-12 my-6 pt-8 h-full text-center">
-                    <div class="p-4 border-b-2 w-fit m-auto rounded-md text-4xl pt-8">
+                <div class="w-full mx-12 my-6 pt-8 h-full text-center">
+                    <div class="p-4 border-b-2 w-fit m-auto mb-8 rounded-md text-4xl pt-8">
                         Profile of : <b class="text-lighterWhite">Cwel</b>
                     </div>
-                    <div id="fraction" class="mt-4 text-3xl pt-6">
+                    <div id="fraction" class="mt-14 text-3xl pt-6">
                         <div class="w-fit m-auto border-b-2 rounded-md pb-1 px-4">
-                            Fraction 
+                            Fraction
                         </div>
                         <div class="text-2xl my-6">
                             Frakcja komunistow kurwa

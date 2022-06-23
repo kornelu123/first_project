@@ -2,7 +2,7 @@
 <?php
     require '../Controllers/Global/Auth.php';
     require '../Controllers/posts.php';
-    
+    $latest = new Posts;
     $posts = new Posts;
     if(isset($_POST['sort']))
         { $posts = $posts->show($_POST['order']); }
@@ -14,6 +14,8 @@
 
     if(isset($_POST['edit']))
         { Posts::edit($_POST['id'],$_POST['title'],$_POST['content'],$_POST['lang']); }
+    $latest = Posts::latest();
+
 ?>
 <html lang="pl">
 <head>
@@ -70,9 +72,22 @@
         <script src="../scripts/menu_script.js"></script>
     </nav>
     <main class="grid grid-cols-9">
-        <aside class="col-span-2 bg-basicViolet h-screen border-t-4 border-basicWhite">
+        <aside class="col-span-2 bg-basicViolet h-screen border-t-4 border-basicWhite text-basicWhite pl-5 pt-7">
             <div id="latest">
-                
+                <div class=" text-2xl">
+                    Latest posts :
+                </div> 
+                <ul class="pl-4 pt-3">                    
+                    <?php
+                        foreach($latest as $post){
+                            $count++;
+                            if($count>5){
+                            break;
+                            }
+                            echo '<li class="my-2 pl-2 pr-4 border-l-2 rounded-md"><a href="#post_'.$post['id'].'">Post named : <b>'.$post['title'].'</b> by : <b>'.$post['username'].'</b></a></li>';
+                        }
+                    ?>
+                </ul>
             </div>
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">

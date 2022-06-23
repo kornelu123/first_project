@@ -40,4 +40,10 @@
             $database->delete('posts', $id);
             return header("Location: " .$_SERVER[HTTP_REFERER]);
         }
+
+        public function latest()
+        {
+            $database = new Database;
+            return $database->select('posts, users', 'posts.*, users.username', 'posts.user = users.id', 'posts.id','DESC LIMIT 5' );
+        }
     }

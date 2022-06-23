@@ -27,4 +27,6 @@
             $database = new Database;
             return $database->select('`users`' , '*', 'users.group = "'.$group.'"');
         }
+
+
     }

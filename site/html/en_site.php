@@ -2,8 +2,11 @@
 <?php
     require '../Controllers/Global/Auth.php';
     require '../Controllers/posts.php';
+    require '../Controllers/groups.php';
     $latest = new Posts;
     $posts = new Posts;
+    $group = new Groups;
+    $randomGroup= $group->show();
     if(isset($_POST['sort']))
         { $posts = $posts->show($_POST['order']); }
     else
@@ -14,6 +17,9 @@
 
     if(isset($_POST['edit']))
         { Posts::edit($_POST['id'],$_POST['title'],$_POST['content'],$_POST['lang']); }
+    
+    // if(isset($_POST['joinGroup']))
+    //     { $group->join()}
     $latest = Posts::latest();
 
 ?>
@@ -73,6 +79,7 @@
     </nav>
     <main class="grid grid-cols-9">
         <aside class="col-span-2 bg-basicViolet h-screen border-t-4 border-basicWhite text-basicWhite pl-5 pt-7">
+
             <div id="latest">
                 <div class=" text-2xl">
                     Latest posts :
@@ -89,6 +96,18 @@
                     ?>
                 </ul>
             </div>
+            <?php
+            echo "</br>";
+            for($i=0; $i<5; $i++)
+            {
+                 $group =$randomGroup[rand(0,count($randomGroup))];
+                echo '<form method="POST" action=#>';
+                echo $group['name'];
+                echo '<input type="text" name="groupID" id="groupID" value="'.$group['id'].'" hidden="hidden">';
+                echo '<input type="button" name="joinGroup" id="joinGroup" value="+">';
+                echo '</form>';
+            }
+                 ?>
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">

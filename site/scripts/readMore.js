@@ -19,6 +19,7 @@ function overflow(i){
 function read(i){
     if(isLogged){
         handleHeight(i)
+        classToggling([['post_u']])
         message = (message == "Read more") ? 'Read less' : 'Read more'
         setMessage(message,i)
     }
@@ -48,62 +49,16 @@ function blurring(i){
     }
 }
 
-//handling the textarea expanding
-function textArea_in(){
-    if(isLogged&&isInFraction){
-        document.getElementById('post_write').classList.remove("h-24")
-        document.getElementById('post_write').classList.add("h-60")
-        document.getElementById("input_post").classList.add("h-32")
-        document.getElementById("input_post").classList.remove("h-5/6")
-        document.getElementById("send_post").classList.add("h-12")
-        document.getElementById("send_post").classList.remove("h-0")
-        document.getElementById("close_icon").classList.remove("hidden")
-        document.getElementById('post_write').onclick = null
+//class toggling 
+function classToggling(array,bool){
+    if(bool){
+        for(let i=0;i<array.length;i++){
+            if(array[i][1]=="add"){
+                document.getElementById(array[i][0]).classList.add(array[i][2])
+            }
+            if(array[i][1]=="remove"){
+                document.getElementById(array[i][0]).classList.remove(array[i][2])
+            }
+        }
     }
-}
-
-//handling the textarea shrinking
-function textArea_out(){
-    document.getElementById('post_write').classList.add("h-24")
-    document.getElementById('post_write').classList.remove("h-60")
-    document.getElementById("input_post").classList.remove("h-32")
-    document.getElementById("input_post").classList.add("h-5/6")
-    document.getElementById("send_post").classList.remove("h-12")
-    document.getElementById("send_post").classList.add("h-0")
-    document.getElementById("close_icon").classList.add("hidden")
-}
-
-//open description
-function desc_open(){
-    if(isLogged){
-        document.getElementById("add_desc").classList.remove('h-10')
-        document.getElementById("add_desc").classList.add('h-44')
-        document.getElementById("desc_close").classList.remove('hidden')
-        document.getElementById("add_desc").classList.remove('mt-4') 
-        document.getElementById("add_desc").classList.add('-mt-1') 
-        document.getElementById("send_desc").classList.add('h-12')
-        document.getElementById("send_desc").classList.remove('h-0') 
-        document.getElementById("send_desc").classList.add('border-2')
-        document.getElementById("send_desc").classList.remove('border-0')
-    }
-}
-
-//close description
-function descr_close(){
-    document.getElementById("add_desc").classList.add('h-10')
-    document.getElementById("add_desc").classList.remove('h-44')
-    document.getElementById("desc_close").classList.add('hidden')
-    document.getElementById("add_desc").classList.add('mt-4') 
-    document.getElementById("add_desc").classList.remove('-mt-1')  
-    document.getElementById("send_desc").classList.remove('h-12')
-    document.getElementById("send_desc").classList.add('h-0')
-    document.getElementById("send_desc").classList.remove('border-2')
-    document.getElementById("send_desc").classList.add('border-0')
-}
-
-//resizing text area
-function textResize(id,on,off){
-    const lel = document.getElementById(id)
-    lel.classList.remove(off)
-    lel.classList.add(on)
 }

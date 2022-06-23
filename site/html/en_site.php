@@ -41,9 +41,9 @@
         <div class="absolute top-4 right-4 text-xl flex h-13 items-center">
             <div class=" bg-lighterWhite mr-4 border-2 rounded-b-md ">
                 <form class="relative"> 
-                    <textarea type="text" class="overflow-none resize-none py-2 text-black pl-7 w-20 h-10 my-auto transition-all ease-in-out transform-[width]" onclick="textResize('search','w-60','w-20');textResize('search_close','text-bold','invisible')" id="search"></textarea>
+                    <textarea type="text" class="overflow-none resize-none py-2 text-black pl-7 w-20 h-10 my-auto transition-all ease-in-out transform-[width]" onclick="classToggling([[`search`,`remove`,`w-20`],[`search`,`add`,`w-60`],[`search_close`,`remove`,`invisible`]],true)" id="search"></textarea>
                     <button type="submit"><img src="../img/search.svg" class="w-8 h-8 mr-2"></button>
-                    <button type="button" id="search_close" class="absolute invisible h-4 w-4 left-2 top-3"  onclick="textResize('search','w-20','w-60');textResize('search_close','invisible','text-bold')" ><img src="../img/cross.svg"></button>
+                    <button type="button" id="search_close" class="absolute invisible h-4 w-4 left-2 top-3"  onclick="classToggling([[`search`,`add`,`w-20`],[`search`,`remove`,`w-60`],[`search_close`,`add`,`invisible`]],true)" ><img src="../img/cross.svg"></button>
                 </form>
             </div>
             <a href="../Controllers/logout.php" class="transition-colors ease-in-out bg-darkViolet hover:text-lighterWhite hover:bg-basicViolet px-4 py-2 border-2 border-basicWhite rounded-b-lg">Log-out</a>
@@ -83,9 +83,9 @@
                 <div class="w-auto max-h-fit h-24 mx-12 my-6 bg-darkerViolet rounded-lg transform-[height] transition-all" id="post_write">
 
                     <form class="h-full  overflow-hidden rounded-lg relative" method="POST" action="">
-                        <button type="button" id="close_icon" class="absolute top-2 left-2 hidden h-4 w-4" onclick="textArea_out('post_write')"><img src="../img/cross.svg" alt="close tab"></button>
+                        <button type="button" id="close_icon" class="absolute top-2 left-2 hidden h-4 w-4" onclick="classToggling([['post_write','add','h-24'],['post_write','remove','h-60'],['input_post','remove','h-32'],['input_post','add','h-5/6'],['send_post','remove','h-12'],['send_post','add','h-0'],['close_icon','add','hidden']],true)"><img src="../img/cross.svg" alt="close tab"></button>
                         <input type="text" name="title" class="w-full h-12 placeholder:text-center pb-1 pt-1 placeholder:font-extrabold text-black px-2" placeholder="Add title">
-                        <textarea type="text" id="input_post" onclick="textArea_in('post_write')" name="post" class="placeholder:font-extrabold placeholder:text-center transform-[height] pt-2 px-2 text-black w-full h-5/6 " placeholder="Write your post..."></textarea>
+                        <textarea type="text" id="input_post" onclick="classToggling([['post_write','remove','h-24'],['post_write','add','h-60'],['input_post','add','h-32'],['input_post','remove','h-5/6'],['send_post','add','h-12'],['send_post','remove','h-0'],['close_icon','remove','hidden']],isLogged)" name="post" class="placeholder:font-extrabold placeholder:text-center transform-[height] pt-2 px-2 text-black w-full h-5/6 " placeholder="Write your post..."></textarea>
                         <button type="send_post" id="send_post" class="h-0 w-full py-5 text-center transform-[height] transition-all font-extrabold text-lighterWhite">Send post</button>
                     </form>
                     <?php

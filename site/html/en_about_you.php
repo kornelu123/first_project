@@ -83,8 +83,8 @@
                             ?>
                             </select></br>    
                             <p for="desc" class="p-2 text-3xl box-border mt-4">Your description</p></br>
-                            <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="descr_close()"><img src="../img/cross.svg" alt="close tab"></button>
-                            <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-8" onclick="desc_open()"></textarea></br> 
+                            <button type="button" id="desc_close" class="relative top-7 left-2 hidden h-4 w-4" onclick="classToggling([['add_desc','add','h-10'],['add_desc','remove','h-44'],['desc_close','add','hidden'],['add_desc','add','mt-4'],['add_desc','remove','-mt-1'],['send_desc','remove','h-12'],['send_desc','add','h-0'],['send_desc','remove','border-2'],['send_desc','add','border-0']],true)"><img src="../img/cross.svg" alt="close tab"></button>
+                            <textarea type="text" id="add_desc" name="desc" class="pt-6 px-2 transform-[height] transition-all ease-in-out w-full m-auto text-black box-border h-10 mt-4 mb-8" onclick="classToggling([['add_desc','remove','h-10'],['add_desc','add','h-44'],['desc_close','remove','hidden'],['add_desc','remove','mt-4'],['add_desc','add','-mt-1'],['send_desc','add','h-12'],['send_desc','remove','h-0'],['send_desc','add','border-2'],['send_desc','remove','border-0']],true)"></textarea></br> 
                             <button type="submit" id="send_desc" placeholder="Add your description" class="text-lg border-0 rounded-b-xl w-1/3 transition-all font-extrabold hover:bg-lightViolet h-0 overflow-hidden transform-[height] text-center">Send description</button>
                         </form>
                     </div>
@@ -112,7 +112,7 @@
                     </div>
                         <div class="text-2xl my-6 h-72 w-2/3 m-auto mt-8 p-4">
                             Jestem kurwa gejem i cwleem pierdolonym zarzyganum i jestem dumny kurwa ze rzygam sobie do odbytu to ci przeszkadza ?? kurwa cwelu zasrtany zarzygany spierrdaaalaja  
-                            <img src="../img/edit.svg" alt="" class="h-10 w-10 m-auto mt-4">
+                            <img src="../img/edit.svg" alt="" class="h-10 w-10 m-auto mt-4" onclick="">
                         </div>
                     </div>
                 </div>

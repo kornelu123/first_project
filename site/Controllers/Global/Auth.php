@@ -42,7 +42,6 @@ class Auth
     public function group()
     {
         $database = new Database;
-
-        return $database->select('users','`group`','id = '.$this->userID);
+        return $group = $database->select('users','`group`','id = '.$this->userID)[0]['group']; ;
     }
 }

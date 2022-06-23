@@ -6,7 +6,6 @@
     $latest = new Posts;
     $posts = new Posts;
     $group = new Groups;
-    // $randomGroup= $group->show();
     if(isset($_POST['sort']))
         { $posts = $posts->show($_POST['order']); }
     else
@@ -18,8 +17,8 @@
     if(isset($_POST['edit']))
         { Posts::edit($_POST['id'],$_POST['title'],$_POST['content'],$_POST['lang']); }
     
-    // if(isset($_POST['joinGroup']))
-    //     { $group->join()}
+    if(isset($_POST['joinGroup']))
+        { $group->joinGroup(Auth::id(), $_POST['groupID']);}
     $latest = Posts::latest();
 
 ?>
@@ -87,26 +86,29 @@
                 <ul class="pl-4 pt-3">                    
                     <?php
                         foreach($latest as $post){
-                            $count++;
-                            if($count>5){
-                            break;
-                            }
                             echo '<li class="my-2 pl-2 pr-4 border-l-2 rounded-md"><a href="#post_'.$post['id'].'">Post named : <b>'.$post['title'].'</b> by : <b>'.$post['username'].'</b></a></li>';
                         }
                     ?>
                 </ul>
             </div>
-            <?php
-            echo "</br>";
-            foreach($group->randomGroups(5) as $randomGroup)
-            {
-                echo '<form method="POST" action=#>';
-                echo $randomGroup['name'];
-                echo '<input type="text" name="groupID" id="groupID" value="'.$randomGroup['id'].'" hidden="hidden">';
-                echo '<input type="button" name="joinGroup" id="joinGroup" value="+">';
-                echo '</form>';
-            }
-                 ?>
+            <div class="pt-2 border-t-4">
+                <div class=" text-2xl">
+                    Dołącz do Frakcji/Grupy :
+                </div> 
+                <?php
+                    foreach($group->randomGroups(5) as $randomGroup)
+                    {
+                        echo '<form method="POST" action="'.$_SERVER['PHP_SELF'].'" class="pl-4 ">';
+                            echo $randomGroup['name'];
+                            if(Auth::authorised())
+                            {
+                                echo '<input type="text" name="groupID" id="groupID" value="'.$randomGroup['id'].'" hidden="hidden">';
+                                echo '<input type="submit" name="joinGroup" id="joinGroup" class="border-2 p-2" value="+">';
+                            }else{ echo " X";}
+                        echo '</form>';
+                    }
+                ?>
+            </div>
         </aside>
         <section class="col-span-7 bg-basicDark h-screen text-basicWhite">
             <div id="main" class="ml-12 bg-basicViolet h-full border-t-4 opacity-70 border-basicWhite overflow-scroll">

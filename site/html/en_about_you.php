@@ -2,8 +2,10 @@
 <?php
     require '../Controllers/Global/Auth.php';
     require '../Controllers/posts.php';
+    require '../Controllers/groups.php';
     $posts = new Posts;
     $posts = $posts->show();
+    $auth= new Auth;
 ?>
 <html lang="en">
 <head>
@@ -103,7 +105,10 @@
                             Fraction 
                         </div>
                         <div class="text-2xl my-6">
-                            Frakcja komunistow kurwa
+                            <?php 
+                                echo Groups::showOne($auth->group())['name'];
+                                echo ' <b class="text-errorRed">'.Groups::showOne($auth->group())['shortcut'].'</b>';
+                            ?>
                         </div>
                     </div>
                     <div id="desc" class="mt-4 text-3xl pt-6">
@@ -111,7 +116,12 @@
                             Description
                     </div>
                         <div class="text-2xl my-6 h-72 w-2/3 m-auto mt-8 p-4">
-                            Jestem kurwa gejem i cwleem pierdolonym zarzyganum i jestem dumny kurwa ze rzygam sobie do odbytu to ci przeszkadza ?? kurwa cwelu zasrtany zarzygany spierrdaaalaja  
+                            <?php
+                            if(Auth::user('description')!=null)
+                                {   echo Auth::user('description'); }
+                            else
+                                {   echo"niemaszopisu!!" ;  }
+                            ?>
                             <img src="../img/edit.svg" alt="" class="h-10 w-10 m-auto mt-4" onclick="">
                         </div>
                     </div>

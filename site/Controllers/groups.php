@@ -13,7 +13,7 @@
         public function showOne($group)
         {
             $database = new Database;
-            return $database->select('`groups`', '*', 'groups.id = "'.$group.'"');
+            return $database->select('`groups`', '*', 'groups.id = "'.$group.'"')[0];
         }
 
         public function create($name, $shortcut, $lang, $logo="NULL", $color="none")
@@ -27,10 +27,16 @@
             $database = new Database;
             return $database->select('`users`' , '*', 'users.group = "'.$group.'"');
         }
+
         public function randomGroups($count)
         {
             $database = new Database;
             return $database->select('`groups`', '*','1=1','RAND()','LIMIT '.$count);
         }
 
+        public function joinGroup($user,$group)
+        {
+            $database = new Database;
+            return $database->updateOneColumn('users', $user,'`group`', $group);
+        }
     }
